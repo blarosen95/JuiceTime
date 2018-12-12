@@ -1,0 +1,199 @@
+﻿<Page
+    x:Class="JuiceTime.Views.RecipePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:JuiceTime.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource RegionBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="3" Text="Enter Your Amounts" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Nicotine Used" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="PG%" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox x:Name="PGNic" Grid.Row="1" Grid.Column="3" TextChanged="PGNic_OnTextChanged"/>
+        <TextBlock Grid.Row="1" Grid.Column="4" Text="VG%" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox x:Name="VGNic" Grid.Row="1" Grid.Column="5" TextChanged="VGNic_OnTextChanged"/>
+        <TextBox x:Name="NicStr" Grid.Row="1" Grid.Column="7" LostFocus="NicStr_OnLostFocus">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Strength of nicotine concentrate"></ToolTip>
+            </ToolTipService.ToolTip>
+        </TextBox>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Target Nicotine Strength (mg/ml)" TextWrapping="Wrap"/>
+        <TextBox x:Name="TargetStrength" Grid.Row="2" Grid.Column="7"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Amount To Make"/>
+        <TextBox x:Name="TargetVolume" Grid.Row="3" Grid.Column="7"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Water/Vodka/PGA"/>
+        <TextBox x:Name="WaterPercentage" Grid.Row="4" Grid.Column="7"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Flavor 1"/>
+        <TextBox x:Name="Flavor1Name" Grid.Row="5" Grid.Column="1"/>
+        <CheckBox x:Name="Flavor1CheckBox" Grid.Row="5" Grid.Column="2"/>
+        <TextBlock Grid.Row="5" Grid.Column="3" Text="PG %"/>
+        <TextBox x:Name="Flavor1PG" Grid.Row="5" Grid.Column="4" Text="100" TextChanged="Flavor1PG_OnTextChanged"/>
+        <TextBlock Grid.Row="5" Grid.Column="5" Text="VG %"/>
+        <TextBox x:Name="Flavor1VG" Grid.Row="5" Grid.Column="6" Text="0" TextChanged="Flavor1VG_OnTextChanged"/>
+        <TextBox x:Name="Flavor1Percentage" Grid.Row="5" Grid.Column="7">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Percentage of flavor used"/>
+            </ToolTipService.ToolTip>
+        </TextBox>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Flavor 2"/>
+        <TextBox x:Name="Flavor2Name" Grid.Row="6" Grid.Column="1"/>
+        <CheckBox x:Name="Flavor2CheckBox" Grid.Row="6" Grid.Column="2"/>
+        <TextBlock Grid.Row="6" Grid.Column="3" Text="PG %"/>
+        <TextBox x:Name="Flavor2PG" Grid.Row="6" Grid.Column="4" Text="100" TextChanged="Flavor2PG_OnTextChanged"/>
+        <TextBlock Grid.Row="6" Grid.Column="5" Text="VG %"/>
+        <TextBox x:Name="Flavor2VG" Grid.Row="6" Grid.Column="6" Text="0" TextChanged="Flavor2VG_OnTextChanged"/>
+        <TextBox x:Name="Flavor2Percentage" Grid.Row="6" Grid.Column="7">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Percentage of flavor used"/>
+            </ToolTipService.ToolTip>
+        </TextBox>
+
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Flavor 3"/>
+        <TextBox x:Name="Flavor3Name" Grid.Row="7" Grid.Column="1"/>
+        <CheckBox x:Name="Flavor3CheckBox" Grid.Row="7" Grid.Column="2"/>
+        <TextBlock Grid.Row="7" Grid.Column="3" Text="PG %"/>
+        <TextBox x:Name="Flavor3PG" Grid.Row="7" Grid.Column="4" Text="100" TextChanged="Flavor3PG_OnTextChanged"/>
+        <TextBlock Grid.Row="7" Grid.Column="5" Text="VG %"/>
+        <TextBox x:Name="Flavor3VG" Grid.Row="7" Grid.Column="6" Text="0" TextChanged="Flavor3VG_OnTextChanged"/>
+        <TextBox x:Name="Flavor3Percentage" Grid.Row="7" Grid.Column="7">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Percentage of flavor used"/>
+            </ToolTipService.ToolTip>
+        </TextBox>
+
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Flavor 4"/>
+        <TextBox x:Name="Flavor4Name" Grid.Row="8" Grid.Column="1"/>
+        <CheckBox x:Name="Flavor4CheckBox" Grid.Row="8" Grid.Column="2"/>
+        <TextBlock Grid.Row="8" Grid.Column="3" Text="PG %"/>
+        <TextBox x:Name="Flavor4PG" Grid.Row="8" Grid.Column="4" Text="100" TextChanged="Flavor4PG_OnTextChanged"/>
+        <TextBlock Grid.Row="8" Grid.Column="5" Text="VG %"/>
+        <TextBox x:Name="Flavor4VG" Grid.Row="8" Grid.Column="6" Text="0" TextChanged="Flavor4VG_OnTextChanged"/>
+        <TextBox x:Name="Flavor4Percentage" Grid.Row="8" Grid.Column="7">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Percentage of flavor used"/>
+            </ToolTipService.ToolTip>
+        </TextBox>
+
+        <TextBlock Grid.Row="9" Grid.Column="0" Text="Flavor 5"/>
+        <TextBox x:Name="Flavor5Name" Grid.Row="9" Grid.Column="1"/>
+        <CheckBox x:Name="Flavor5CheckBox" Grid.Row="9" Grid.Column="2"/>
+        <TextBlock Grid.Row="9" Grid.Column="3" Text="PG %"/>
+        <TextBox x:Name="Flavor5PG" Grid.Row="9" Grid.Column="4" Text="100" TextChanged="Flavor5PG_OnTextChanged"/>
+        <TextBlock Grid.Row="9" Grid.Column="5" Text="VG %"/>
+        <TextBox x:Name="Flavor5VG" Grid.Row="9" Grid.Column="6" Text="0" TextChanged="Flavor5VG_OnTextChanged"/>
+        <TextBox x:Name="Flavor5Percentage" Grid.Row="9" Grid.Column="7">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Percentage of flavor used"/>
+            </ToolTipService.ToolTip>
+        </TextBox>
+
+        <TextBlock Grid.Row="10" Grid.Column="0" Text="Flavor 6"/>
+        <TextBox x:Name="Flavor6Name" Grid.Row="10" Grid.Column="1"/>
+        <CheckBox x:Name="Flavor6CheckBox" Grid.Row="10" Grid.Column="2"/>
+        <TextBlock Grid.Row="10" Grid.Column="3" Text="PG %"/>
+        <TextBox x:Name="Flavor6PG" Grid.Row="10" Grid.Column="4" Text="100" TextChanged="Flavor6PG_OnTextChanged"/>
+        <TextBlock Grid.Row="10" Grid.Column="5" Text="VG %"/>
+        <TextBox x:Name="Flavor6VG" Grid.Row="10" Grid.Column="6" Text="0" TextChanged="Flavor6VG_OnTextChanged"/>
+        <TextBox x:Name="Flavor6Percentage" Grid.Row="10" Grid.Column="7">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Percentage of flavor used"/>
+            </ToolTipService.ToolTip>
+        </TextBox>
+
+        <TextBlock Grid.Row="11" Grid.Column="0" Text="Flavor 7"/>
+        <TextBox x:Name="Flavor7Name" Grid.Row="11" Grid.Column="1"/>
+        <CheckBox x:Name="Flavor7CheckBox" Grid.Row="11" Grid.Column="2"/>
+        <TextBlock Grid.Row="11" Grid.Column="3" Text="PG %"/>
+        <TextBox x:Name="Flavor7PG" Grid.Row="11" Grid.Column="4" Text="100" TextChanged="Flavor7PG_OnTextChanged"/>
+        <TextBlock Grid.Row="11" Grid.Column="5" Text="VG %"/>
+        <TextBox x:Name="Flavor7VG" Grid.Row="11" Grid.Column="6" Text="0" TextChanged="Flavor7VG_OnTextChanged"/>
+        <TextBox x:Name="Flavor7Percentage" Grid.Row="11" Grid.Column="7">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Percentage of flavor used"/>
+            </ToolTipService.ToolTip>
+        </TextBox>
+
+        <TextBlock Grid.Row="12" Grid.Column="0" Text="Flavor 8"/>
+        <TextBox x:Name="Flavor8Name" Grid.Row="12" Grid.Column="1"/>
+        <CheckBox x:Name="Flavor8CheckBox" Grid.Row="12" Grid.Column="2"/>
+        <TextBlock Grid.Row="12" Grid.Column="3" Text="PG %"/>
+        <TextBox x:Name="Flavor8PG" Grid.Row="12" Grid.Column="4" Text="100" TextChanged="Flavor8PG_OnTextChanged"/>
+        <TextBlock Grid.Row="12" Grid.Column="5" Text="VG %"/>
+        <TextBox x:Name="Flavor8VG" Grid.Row="12" Grid.Column="6" Text="0" TextChanged="Flavor8VG_OnTextChanged"/>
+        <TextBox x:Name="Flavor8Percentage" Grid.Row="12" Grid.Column="7">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Percentage of flavor used"/>
+            </ToolTipService.ToolTip>
+        </TextBox>
+
+        <TextBlock Grid.Row="13" Grid.Column="0" Text="Flavor 9"/>
+        <TextBox x:Name="Flavor9Name" Grid.Row="13" Grid.Column="1"/>
+        <CheckBox x:Name="Flavor9CheckBox" Grid.Row="13" Grid.Column="2"/>
+        <TextBlock Grid.Row="13" Grid.Column="3" Text="PG %"/>
+        <TextBox x:Name="Flavor9PG" Grid.Row="13" Grid.Column="4" Text="100" TextChanged="Flavor9PG_OnTextChanged"/>
+        <TextBlock Grid.Row="13" Grid.Column="5" Text="VG %"/>
+        <TextBox x:Name="Flavor9VG" Grid.Row="13" Grid.Column="6" Text="0" TextChanged="Flavor9VG_OnTextChanged"/>
+        <TextBox x:Name="Flavor9Percentage" Grid.Row="13" Grid.Column="7">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Percentage of flavor used"/>
+            </ToolTipService.ToolTip>
+        </TextBox>
+
+        <TextBlock Grid.Row="14" Grid.Column="0" Text="Flavor 10"/>
+        <TextBox x:Name="Flavor10Name" Grid.Row="14" Grid.Column="1"/>
+        <CheckBox x:Name="Flavor10CheckBox" Grid.Row="14" Grid.Column="2"/>
+        <TextBlock Grid.Row="14" Grid.Column="3" Text="PG %"/>
+        <TextBox x:Name="Flavor10PG" Grid.Row="14" Grid.Column="4" Text="100" TextChanged="Flavor10PG_OnTextChanged"/>
+        <TextBlock Grid.Row="14" Grid.Column="5" Text="VG %"/>
+        <TextBox x:Name="Flavor10VG" Grid.Row="14" Grid.Column="6" Text="0" TextChanged="Flavor10VG_OnTextChanged"/>
+        <TextBox x:Name="Flavor10Percentage" Grid.Row="14" Grid.Column="7">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Percentage of flavor used"/>
+            </ToolTipService.ToolTip>
+        </TextBox>
+
+        <TextBlock Grid.Row="15" Grid.Column="0" Text="Target PG %"/>
+        <TextBox x:Name="TargetPG" Grid.Row="15" Grid.Column="1" TextChanged="TargetPG_OnTextChanged"/>
+        <TextBlock Grid.Row="15" Grid.Column="2" Text="Target VG %" HorizontalAlignment="Center"/>
+        <TextBox x:Name="TargetVG" Grid.Row="15" Grid.Column="3" TextChanged="TargetVG_OnTextChanged"/>
+        <TextBlock Grid.Row="15" Grid.Column="4" Text="Ratio you want your recipe to be" TextWrapping="Wrap"/>
+
+    </Grid>
+</Page>

@@ -1,0 +1,43 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:JuiceTime">
+
+    <!-- Free Public License 1.0.0 Permission to use, copy, modify, and/or distribute this code for any purpose with or without fee is hereby granted. -->
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <ResourceDictionary.MergedDictionaries>
+                <ColorPaletteResources Accent="#FF8961CC" AltHigh="#FF000000" AltLow="#FF000000" AltMedium="#FF000000" AltMediumHigh="#FF000000" AltMediumLow="#FF000000" BaseHigh="#FFFFFFFF" BaseLow="#FF432F51" BaseMedium="#FFA596B0" BaseMediumHigh="#FFBDB0C8" BaseMediumLow="#FF746381" ChromeAltLow="#FFBDB0C8" ChromeBlackHigh="#FF000000" ChromeBlackLow="#FFBDB0C8" ChromeBlackMedium="#FF000000" ChromeBlackMediumLow="#FF000000" ChromeDisabledHigh="#FF432F51" ChromeDisabledLow="#FFA596B0" ChromeGray="#FF8C7C98" ChromeHigh="#FF8C7C98" ChromeLow="#FF1F0E33" ChromeMedium="#FF28163B" ChromeMediumLow="#FF3A274A" ChromeWhite="#FFFFFFFF" ListLow="#FF28163B" ListMedium="#FF432F51" />
+                <ResourceDictionary>
+                    <Color x:Key="SystemChromeAltMediumHighColor">#CC262738</Color>
+                    <Color x:Key="SystemChromeAltHighColor">#FF262738</Color>
+                    <Color x:Key="SystemRevealListLowColor">#FF28163B</Color>
+                    <Color x:Key="SystemRevealListMediumColor">#FF432F51</Color>
+                    <Color x:Key="RegionColor">#FF262738</Color>
+                    <SolidColorBrush x:Key="RegionBrush" Color="{StaticResource RegionColor}" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Light">
+            <ResourceDictionary.MergedDictionaries>
+                <ColorPaletteResources Accent="#FF8961CC" AltHigh="#FFFFFFFF" AltLow="#FFFFFFFF" AltMedium="#FFFFFFFF" AltMediumHigh="#FFFFFFFF" AltMediumLow="#FFFFFFFF" BaseHigh="#FF000000" BaseLow="#FFEECEFF" BaseMedium="#FFA987BC" BaseMediumHigh="#FF7B5890" BaseMediumLow="#FF9270A6" ChromeAltLow="#FF7B5890" ChromeBlackHigh="#FF000000" ChromeBlackLow="#FFEECEFF" ChromeBlackMedium="#FF7B5890" ChromeBlackMediumLow="#FFA987BC" ChromeDisabledHigh="#FFEECEFF" ChromeDisabledLow="#FFA987BC" ChromeGray="#FF9270A6" ChromeHigh="#FFEECEFF" ChromeLow="#FFFEEAFF" ChromeMedium="#FFFBE4FF" ChromeMediumLow="#FFFEEAFF" ChromeWhite="#FFFFFFFF" ListLow="#FFFBE4FF" ListMedium="#FFEECEFF" />
+                <ResourceDictionary>
+                    <Color x:Key="SystemChromeAltMediumHighColor">#CCFEF6FF</Color>
+                    <Color x:Key="SystemChromeAltHighColor">#FFFEF6FF</Color>
+                    <Color x:Key="SystemRevealListLowColor">#FFFBE4FF</Color>
+                    <Color x:Key="SystemRevealListMediumColor">#FFEECEFF</Color>
+                    <RevealBackgroundBrush x:Key="SystemControlHighlightListLowRevealBackgroundBrush" TargetTheme="Light" Color="{ThemeResource SystemRevealListMediumColor}" FallbackColor="{ StaticResource SystemListMediumColor}" />
+                    <Color x:Key="RegionColor">#FFFEF6FF</Color>
+                    <SolidColorBrush x:Key="RegionBrush" Color="{StaticResource RegionColor}" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="HighContrast">
+            <StaticResource x:Key="RegionColor" ResourceKey="SystemColorWindowColor" />
+            <SolidColorBrush x:Key="RegionBrush" Color="{StaticResource RegionColor}" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+</ResourceDictionary>
+
+    
