@@ -29,10 +29,10 @@ namespace JuiceTime
         //Open the file browser dialog
         private async void Open_OnClick(object sender, RoutedEventArgs e)
         {
-            var picker = new Windows.Storage.Pickers.FileOpenPicker();
-            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.List;
+            var picker = new FileOpenPicker();
+            picker.ViewMode = PickerViewMode.List;
             //Either replace this with a custom File Explorer view or ensure that this directory is ultimately always remembered
-            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+            picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             picker.FileTypeFilter.Add(".json");
 
             StorageFile file = await picker.PickSingleFileAsync();
