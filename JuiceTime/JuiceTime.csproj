@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="Flavor.cs" />
+    <Compile Include="List.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

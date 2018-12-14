@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace JuiceTime
 {
-    internal class Recipe
+    public class Recipe
     {
         [JsonProperty] private double NicPGToVG;
         [JsonProperty] private double NicStrength;

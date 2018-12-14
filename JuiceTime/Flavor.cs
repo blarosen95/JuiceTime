@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace JuiceTime
 {
-    class Flavor
+    public class Flavor
     {
         [JsonProperty]
         private string Brand;
@@ -33,5 +33,9 @@ namespace JuiceTime
             pgtoVg = PGToVG;
             percentToUse = PercentToUse;
         }
+
+        public double GetPG() => PGToVG;
+        public double GetPercentToUse() => PercentToUse;
+
     }
 }

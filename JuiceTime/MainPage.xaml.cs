@@ -19,7 +19,6 @@ namespace JuiceTime
 
         internal RecipePage RecipeView = new RecipePage();
         internal NotesPage NotesView = new NotesPage();
-        internal CalculatePage CalculateView = new CalculatePage();
 
         public MainPage()
         {
@@ -122,7 +121,10 @@ namespace JuiceTime
                     break;
 
                 case "Nav_Calculator":
-                    contentFrame.Content = CalculateView;
+                    CalculatePage calculateView = new CalculatePage(RecipeView.CreateRecipeFromData(NotesView.NotesTextBox.Text));
+                    //Calculate the values before bringing the page into view
+                    calculateView.CalculateValues();
+                    contentFrame.Content = calculateView;
                     break;
             }
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml.Controls;
 
@@ -45,6 +46,17 @@ namespace JuiceTime
         {
             double.TryParse(textBox.Text, out var result);
             return result;
+        }
+
+        public static double QuickParse(this TextBlock textBlock)
+        {
+            double.TryParse(textBlock.Text, out var result);
+            return result;
+        }
+
+        public static double ToMl(this double percentage, double targetVol)
+        {
+            return (percentage * targetVol) / 100;
         }
 
     }

@@ -5,10 +5,116 @@
     xmlns:local="using:JuiceTime.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
-    <Grid>
+    <Grid x:Name="CalcGrid" Background="{ThemeResource RegionBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="2" FontWeight="ExtraBold" Text="Calculated Values"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" FontWeight="Bold" Text="Ingredient"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" FontWeight="Bold" Text="ml"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" FontWeight="Bold" Text="grams"/>
+        <TextBlock Grid.Row="1" Grid.Column="3" FontWeight="Bold" Text="% of Total"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Nicotine"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="0" x:Name="NicotineMl"/>
+        <TextBlock Grid.Row="2" Grid.Column="2" Text="0" x:Name="NicotineGrams"/>
+        <TextBlock Grid.Row="2" Grid.Column="3" Text="0" x:Name="NicotinePercent"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="PG"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="0" x:Name="PGMl"/>
+        <TextBlock Grid.Row="3" Grid.Column="2" Text="0" x:Name="PGGrams"/>
+        <TextBlock Grid.Row="3" Grid.Column="3" Text="0" x:Name="PGPercent"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="VG"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="0" x:Name="VGMl"/>
+        <TextBlock Grid.Row="4" Grid.Column="2" Text="0" x:Name="VGGrams"/>
+        <TextBlock Grid.Row="4" Grid.Column="3" Text="0" x:Name="VGPercent"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Water/Vodka/PGA"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="0" x:Name="WaterMl"/>
+        <TextBlock Grid.Row="5" Grid.Column="2" Text="0" x:Name="WaterGrams"/>
+        <TextBlock Grid.Row="5" Grid.Column="3" Text="0" x:Name="WaterPercent"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Flavor Name 1" x:Name="Flavor1Name"/>
+        <TextBlock Grid.Row="6" Grid.Column="1" Text="0" x:Name="Flavor1Ml"/>
+        <TextBlock Grid.Row="6" Grid.Column="2" Text="0" x:Name="Flavor1Grams"/>
+        <TextBlock Grid.Row="6" Grid.Column="3" Text="0" x:Name="Flavor1Percent"/>
+        
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Flavor Name 2" x:Name="Flavor2Name"/>
+        <TextBlock Grid.Row="7" Grid.Column="1" Text="0" x:Name="Flavor2Ml"/>
+        <TextBlock Grid.Row="7" Grid.Column="2" Text="0" x:Name="Flavor2Grams"/>
+        <TextBlock Grid.Row="7" Grid.Column="3" Text="0" x:Name="Flavor2Percent"/>
+
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Flavor Name 3" x:Name="Flavor3Name"/>
+        <TextBlock Grid.Row="8" Grid.Column="1" Text="0" x:Name="Flavor3Ml"/>
+        <TextBlock Grid.Row="8" Grid.Column="2" Text="0" x:Name="Flavor3Grams"/>
+        <TextBlock Grid.Row="8" Grid.Column="3" Text="0" x:Name="Flavor3Percent"/>
+
+        <TextBlock Grid.Row="9" Grid.Column="0" Text="Flavor Name 4" x:Name="Flavor4Name"/>
+        <TextBlock Grid.Row="9" Grid.Column="1" Text="0" x:Name="Flavor4Ml"/>
+        <TextBlock Grid.Row="9" Grid.Column="2" Text="0" x:Name="Flavor4Grams"/>
+        <TextBlock Grid.Row="9" Grid.Column="3" Text="0" x:Name="Flavor4Percent"/>
+
+        <TextBlock Grid.Row="10" Grid.Column="0" Text="Flavor Name 5" x:Name="Flavor5Name"/>
+        <TextBlock Grid.Row="10" Grid.Column="1" Text="0" x:Name="Flavor5Ml"/>
+        <TextBlock Grid.Row="10" Grid.Column="2" Text="0" x:Name="Flavor5Grams"/>
+        <TextBlock Grid.Row="10" Grid.Column="3" Text="0" x:Name="Flavor5Percent"/>
+
+        <TextBlock Grid.Row="11" Grid.Column="0" Text="Flavor Name 6" x:Name="Flavor6Name"/>
+        <TextBlock Grid.Row="11" Grid.Column="1" Text="0" x:Name="Flavor6Ml"/>
+        <TextBlock Grid.Row="11" Grid.Column="2" Text="0" x:Name="Flavor6Grams"/>
+        <TextBlock Grid.Row="11" Grid.Column="3" Text="0" x:Name="Flavor6Percent"/>
+
+        <TextBlock Grid.Row="12" Grid.Column="0" Text="Flavor Name 7" x:Name="Flavor7Name"/>
+        <TextBlock Grid.Row="12" Grid.Column="1" Text="0" x:Name="Flavor7Ml"/>
+        <TextBlock Grid.Row="12" Grid.Column="2" Text="0" x:Name="Flavor7Grams"/>
+        <TextBlock Grid.Row="12" Grid.Column="3" Text="0" x:Name="Flavor7Percent"/>
+
+        <TextBlock Grid.Row="13" Grid.Column="0" Text="Flavor Name 8" x:Name="Flavor8Name"/>
+        <TextBlock Grid.Row="13" Grid.Column="1" Text="0" x:Name="Flavor8Ml"/>
+        <TextBlock Grid.Row="13" Grid.Column="2" Text="0" x:Name="Flavor8Grams"/>
+        <TextBlock Grid.Row="13" Grid.Column="3" Text="0" x:Name="Flavor8Percent"/>
+
+        <TextBlock Grid.Row="14" Grid.Column="0" Text="Flavor Name 9" x:Name="Flavor9Name"/>
+        <TextBlock Grid.Row="14" Grid.Column="1" Text="0" x:Name="Flavor9Ml"/>
+        <TextBlock Grid.Row="14" Grid.Column="2" Text="0" x:Name="Flavor9Grams"/>
+        <TextBlock Grid.Row="14" Grid.Column="3" Text="0" x:Name="Flavor9Percent"/>
+
+        <TextBlock Grid.Row="15" Grid.Column="0" Text="Flavor Name 10" x:Name="Flavor10Name"/>
+        <TextBlock Grid.Row="15" Grid.Column="1" Text="0" x:Name="Flavor10Ml"/>
+        <TextBlock Grid.Row="15" Grid.Column="2" Text="0" x:Name="Flavor10Grams"/>
+        <TextBlock Grid.Row="15" Grid.Column="3" Text="0" x:Name="Flavor10Percent"/>
+
+        <TextBlock Grid.Row="16" Grid.Column="0" Text="TOTAL" FontWeight="ExtraBold"/>
+        <TextBlock Grid.Row="16" Grid.Column="1" Text="0" FontWeight="ExtraBold" x:Name="TotalMl"/>
+        <TextBlock Grid.Row="16" Grid.Column="2" Text="0" FontWeight="ExtraBold" x:Name="TotalGrams"/>
+        <TextBlock Grid.Row="16" Grid.Column="3" Text="0" FontWeight="ExtraBold" x:Name="TotalPercent"/>
 
     </Grid>
 </Page>
