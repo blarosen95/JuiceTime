@@ -121,6 +121,10 @@
     </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="Flavor.cs" />
+    <Compile Include="Grams.cs" />
+    <Compile Include="Views\GramsPage.xaml.cs">
+      <DependentUpon>GramsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="List.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -130,9 +134,6 @@
     <Compile Include="Recipe.cs" />
     <Compile Include="Views\CalculatePage.xaml.cs">
       <DependentUpon>CalculatePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\GramsSetPage.xaml.cs">
-      <DependentUpon>GramsSetPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NotesPage.xaml.cs">
       <DependentUpon>NotesPage.xaml</DependentUpon>
@@ -166,15 +167,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\GramsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CalculatePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GramsSetPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

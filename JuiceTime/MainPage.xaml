@@ -25,6 +25,8 @@
                             </MenuFlyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
+
+                    <AppBarButton Icon="Scan" IsCompact="True" ToolTipService.ToolTip="Grams Set" AutomationProperties.Name="Grams Set" Click="GramsSet_OnClick"/>
                 </StackPanel>
 
             </Grid>

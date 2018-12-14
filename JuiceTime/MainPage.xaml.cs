@@ -4,6 +4,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.UI.Xaml.Controls.Primitives;
 using JuiceTime.Views;
 using Newtonsoft.Json;
 
@@ -130,5 +131,11 @@ namespace JuiceTime
         }
         #endregion
 
+        private void GramsSet_OnClick(object sender, RoutedEventArgs e)
+        {
+            Popup p = new Popup();
+            p.Child = new GramsPage();
+            p.IsOpen = true;
+        }
     }
 }
