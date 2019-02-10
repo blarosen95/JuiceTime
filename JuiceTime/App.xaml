@@ -5,7 +5,7 @@
     xmlns:local="using:JuiceTime">
 
     <Application.Resources>
-        <ResourceDictionary Source="CozyLight.xaml"/>
+        <ResourceDictionary Source="OceanCreme.xaml"/>
     </Application.Resources>
 
 </Application>

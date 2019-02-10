@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Windows.UI.Xaml.Controls;
 
@@ -11,13 +11,13 @@ namespace JuiceTime
         {
             var text = textBox.Text;
 
-            return double.TryParse(text, out var value) ? (100.0 - value).ToString() : null;
+            return double.TryParse(text, out var value) ? (100.0 - value).ToString(CultureInfo.CurrentCulture) : null;
         }
 
         public static async void HandlePercentageHandlers(this TextBox textBox, TextBox boxToUpdate)
         {
-            string validChars = ".0123456789";
-            MessageDialogFactory messageDialogFactory = new MessageDialogFactory();
+            const string validChars = ".0123456789";
+            var messageDialogFactory = new MessageDialogFactory();
 
             if (!textBox.Text.All(validChars.Contains))
             {
@@ -33,8 +33,8 @@ namespace JuiceTime
         //Called by EventHandlers in order to prevent invalid characters from being used in certain textboxes
         public static async void HandleValidatingBoxes(this TextBox textBox)
         {
-            string validChars = ".0123456789";
-            MessageDialogFactory messageDialogFactory = new MessageDialogFactory();
+            const string validChars = ".0123456789";
+            var messageDialogFactory = new MessageDialogFactory();
 
             if (!textBox.Text.All(validChars.Contains))
             {

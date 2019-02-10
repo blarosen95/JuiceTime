@@ -1,46 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using Newtonsoft.Json;
 
 namespace JuiceTime
 {
     class Grams
     {
-        [JsonProperty] private double NicGrams;
-        [JsonProperty] private double PGGrams;
-        [JsonProperty] private double VGGrams;
-        [JsonProperty] private double WaterGrams;
-        [JsonProperty] private double FlavorGrams;
+        [JsonProperty] private double _nicGrams;
+        [JsonProperty] private double _pgGrams;
+        [JsonProperty] private double _vgGrams;
+        [JsonProperty] private double _waterGrams;
+        [JsonProperty] private double _flavorGrams;
 
         public Grams(double nicGrams, double pgGrams, double vgGrams, double waterGrams, double flavorGrams)
         {
-            NicGrams = nicGrams;
-            PGGrams = pgGrams;
-            VGGrams = vgGrams;
-            WaterGrams = waterGrams;
-            FlavorGrams = flavorGrams;
+            _nicGrams = nicGrams;
+            _pgGrams = pgGrams;
+            _vgGrams = vgGrams;
+            _waterGrams = waterGrams;
+            _flavorGrams = flavorGrams;
         }
 
         public void Deconstruct(out double nicGrams, out double pgGrams, out double vgGrams, out double waterGrams, out double flavorGrams)
         {
-            nicGrams = NicGrams;
-            pgGrams = PGGrams;
-            vgGrams = VGGrams;
-            waterGrams = WaterGrams;
-            flavorGrams = FlavorGrams;
+            nicGrams = _nicGrams;
+            pgGrams = _pgGrams;
+            vgGrams = _vgGrams;
+            waterGrams = _waterGrams;
+            flavorGrams = _flavorGrams;
         }
 
         public void Deconstruct(out string nicGrams, out string pgGrams, out string vgGrams, out string waterGrams,
             out string flavorGrams, out string filler)
         {
-            nicGrams = NicGrams.ToString();
-            pgGrams = PGGrams.ToString();
-            vgGrams = VGGrams.ToString();
-            waterGrams = WaterGrams.ToString();
-            flavorGrams = FlavorGrams.ToString();
+            nicGrams = _nicGrams.ToString(CultureInfo.CurrentCulture);
+            pgGrams = _pgGrams.ToString(CultureInfo.CurrentCulture);
+            vgGrams = _vgGrams.ToString(CultureInfo.CurrentCulture);
+            waterGrams = _waterGrams.ToString(CultureInfo.CurrentCulture);
+            flavorGrams = _flavorGrams.ToString(CultureInfo.CurrentCulture);
             filler = "";
         }
 

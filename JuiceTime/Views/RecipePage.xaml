@@ -61,7 +61,11 @@
 
         <TextBlock Grid.Row="5" Grid.Column="0" Text="Flavor 1"/>
         <TextBox x:Name="Flavor1Name" Grid.Row="5" Grid.Column="1"/>
-        <CheckBox x:Name="Flavor1CheckBox" Grid.Row="5" Grid.Column="2"/>
+        <CheckBox x:Name="Flavor1CheckBox" Grid.Row="5" Grid.Column="2">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Flavor has zero VG &amp; PG"/>
+            </ToolTipService.ToolTip>
+        </CheckBox>
         <TextBlock Grid.Row="5" Grid.Column="3" Text="PG %"/>
         <TextBox x:Name="Flavor1PG" Grid.Row="5" Grid.Column="4" Text="100" TextChanged="Flavor1PG_OnTextChanged"/>
         <TextBlock Grid.Row="5" Grid.Column="5" Text="VG %"/>
@@ -74,7 +78,11 @@
 
         <TextBlock Grid.Row="6" Grid.Column="0" Text="Flavor 2"/>
         <TextBox x:Name="Flavor2Name" Grid.Row="6" Grid.Column="1"/>
-        <CheckBox x:Name="Flavor2CheckBox" Grid.Row="6" Grid.Column="2"/>
+        <CheckBox x:Name="Flavor2CheckBox" Grid.Row="6" Grid.Column="2">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Flavor has zero VG &amp; PG"/>
+            </ToolTipService.ToolTip>
+        </CheckBox>
         <TextBlock Grid.Row="6" Grid.Column="3" Text="PG %"/>
         <TextBox x:Name="Flavor2PG" Grid.Row="6" Grid.Column="4" Text="100" TextChanged="Flavor2PG_OnTextChanged"/>
         <TextBlock Grid.Row="6" Grid.Column="5" Text="VG %"/>
@@ -87,7 +95,11 @@
 
         <TextBlock Grid.Row="7" Grid.Column="0" Text="Flavor 3"/>
         <TextBox x:Name="Flavor3Name" Grid.Row="7" Grid.Column="1"/>
-        <CheckBox x:Name="Flavor3CheckBox" Grid.Row="7" Grid.Column="2"/>
+        <CheckBox x:Name="Flavor3CheckBox" Grid.Row="7" Grid.Column="2">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Flavor has zero VG &amp; PG"/>
+            </ToolTipService.ToolTip>
+        </CheckBox>
         <TextBlock Grid.Row="7" Grid.Column="3" Text="PG %"/>
         <TextBox x:Name="Flavor3PG" Grid.Row="7" Grid.Column="4" Text="100" TextChanged="Flavor3PG_OnTextChanged"/>
         <TextBlock Grid.Row="7" Grid.Column="5" Text="VG %"/>
@@ -100,7 +112,11 @@
 
         <TextBlock Grid.Row="8" Grid.Column="0" Text="Flavor 4"/>
         <TextBox x:Name="Flavor4Name" Grid.Row="8" Grid.Column="1"/>
-        <CheckBox x:Name="Flavor4CheckBox" Grid.Row="8" Grid.Column="2"/>
+        <CheckBox x:Name="Flavor4CheckBox" Grid.Row="8" Grid.Column="2">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Flavor has zero VG &amp; PG"/>
+            </ToolTipService.ToolTip>
+        </CheckBox>
         <TextBlock Grid.Row="8" Grid.Column="3" Text="PG %"/>
         <TextBox x:Name="Flavor4PG" Grid.Row="8" Grid.Column="4" Text="100" TextChanged="Flavor4PG_OnTextChanged"/>
         <TextBlock Grid.Row="8" Grid.Column="5" Text="VG %"/>
@@ -113,7 +129,11 @@
 
         <TextBlock Grid.Row="9" Grid.Column="0" Text="Flavor 5"/>
         <TextBox x:Name="Flavor5Name" Grid.Row="9" Grid.Column="1"/>
-        <CheckBox x:Name="Flavor5CheckBox" Grid.Row="9" Grid.Column="2"/>
+        <CheckBox x:Name="Flavor5CheckBox" Grid.Row="9" Grid.Column="2">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Flavor has zero VG &amp; PG"/>
+            </ToolTipService.ToolTip>
+        </CheckBox>
         <TextBlock Grid.Row="9" Grid.Column="3" Text="PG %"/>
         <TextBox x:Name="Flavor5PG" Grid.Row="9" Grid.Column="4" Text="100" TextChanged="Flavor5PG_OnTextChanged"/>
         <TextBlock Grid.Row="9" Grid.Column="5" Text="VG %"/>
@@ -126,7 +146,11 @@
 
         <TextBlock Grid.Row="10" Grid.Column="0" Text="Flavor 6"/>
         <TextBox x:Name="Flavor6Name" Grid.Row="10" Grid.Column="1"/>
-        <CheckBox x:Name="Flavor6CheckBox" Grid.Row="10" Grid.Column="2"/>
+        <CheckBox x:Name="Flavor6CheckBox" Grid.Row="10" Grid.Column="2">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Flavor has zero VG &amp; PG"/>
+            </ToolTipService.ToolTip>
+        </CheckBox>
         <TextBlock Grid.Row="10" Grid.Column="3" Text="PG %"/>
         <TextBox x:Name="Flavor6PG" Grid.Row="10" Grid.Column="4" Text="100" TextChanged="Flavor6PG_OnTextChanged"/>
         <TextBlock Grid.Row="10" Grid.Column="5" Text="VG %"/>
@@ -139,7 +163,11 @@
 
         <TextBlock Grid.Row="11" Grid.Column="0" Text="Flavor 7"/>
         <TextBox x:Name="Flavor7Name" Grid.Row="11" Grid.Column="1"/>
-        <CheckBox x:Name="Flavor7CheckBox" Grid.Row="11" Grid.Column="2"/>
+        <CheckBox x:Name="Flavor7CheckBox" Grid.Row="11" Grid.Column="2">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Flavor has zero VG &amp; PG"/>
+            </ToolTipService.ToolTip>
+        </CheckBox>
         <TextBlock Grid.Row="11" Grid.Column="3" Text="PG %"/>
         <TextBox x:Name="Flavor7PG" Grid.Row="11" Grid.Column="4" Text="100" TextChanged="Flavor7PG_OnTextChanged"/>
         <TextBlock Grid.Row="11" Grid.Column="5" Text="VG %"/>
@@ -152,7 +180,11 @@
 
         <TextBlock Grid.Row="12" Grid.Column="0" Text="Flavor 8"/>
         <TextBox x:Name="Flavor8Name" Grid.Row="12" Grid.Column="1"/>
-        <CheckBox x:Name="Flavor8CheckBox" Grid.Row="12" Grid.Column="2"/>
+        <CheckBox x:Name="Flavor8CheckBox" Grid.Row="12" Grid.Column="2">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Flavor has zero VG &amp; PG"/>
+            </ToolTipService.ToolTip>
+        </CheckBox>
         <TextBlock Grid.Row="12" Grid.Column="3" Text="PG %"/>
         <TextBox x:Name="Flavor8PG" Grid.Row="12" Grid.Column="4" Text="100" TextChanged="Flavor8PG_OnTextChanged"/>
         <TextBlock Grid.Row="12" Grid.Column="5" Text="VG %"/>
@@ -165,7 +197,11 @@
 
         <TextBlock Grid.Row="13" Grid.Column="0" Text="Flavor 9"/>
         <TextBox x:Name="Flavor9Name" Grid.Row="13" Grid.Column="1"/>
-        <CheckBox x:Name="Flavor9CheckBox" Grid.Row="13" Grid.Column="2"/>
+        <CheckBox x:Name="Flavor9CheckBox" Grid.Row="13" Grid.Column="2">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Flavor has zero VG &amp; PG"/>
+            </ToolTipService.ToolTip>
+        </CheckBox>
         <TextBlock Grid.Row="13" Grid.Column="3" Text="PG %"/>
         <TextBox x:Name="Flavor9PG" Grid.Row="13" Grid.Column="4" Text="100" TextChanged="Flavor9PG_OnTextChanged"/>
         <TextBlock Grid.Row="13" Grid.Column="5" Text="VG %"/>
@@ -178,7 +214,11 @@
 
         <TextBlock Grid.Row="14" Grid.Column="0" Text="Flavor 10"/>
         <TextBox x:Name="Flavor10Name" Grid.Row="14" Grid.Column="1"/>
-        <CheckBox x:Name="Flavor10CheckBox" Grid.Row="14" Grid.Column="2"/>
+        <CheckBox x:Name="Flavor10CheckBox" Grid.Row="14" Grid.Column="2">
+            <ToolTipService.ToolTip>
+                <ToolTip Content="Flavor has zero VG &amp; PG"/>
+            </ToolTipService.ToolTip>
+        </CheckBox>
         <TextBlock Grid.Row="14" Grid.Column="3" Text="PG %"/>
         <TextBox x:Name="Flavor10PG" Grid.Row="14" Grid.Column="4" Text="100" TextChanged="Flavor10PG_OnTextChanged"/>
         <TextBlock Grid.Row="14" Grid.Column="5" Text="VG %"/>

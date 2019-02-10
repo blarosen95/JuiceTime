@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -11,7 +12,7 @@ namespace JuiceTime.Views
         internal Recipe CreateRecipeFromData(string notes)
         {
 
-            Recipe thisRecipe = new Recipe(
+            var thisRecipe = new Recipe(
                 PGNic.QuickParse(),
                 NicStr.QuickParse(),
                 TargetStrength.QuickParse(),
@@ -28,12 +29,12 @@ namespace JuiceTime.Views
         {
             var (pgNic, nicStr, targetStr, targetVol, targetPg, flavors, notes, waterVodkaPga) = recipe;
 
-            PGNic.Text = pgNic.ToString();
-            NicStr.Text = nicStr.ToString();
-            TargetStrength.Text = targetStr.ToString();
-            TargetVolume.Text = targetVol.ToString();
-            TargetPG.Text = targetPg.ToString();
-            WaterPercentage.Text = waterVodkaPga.ToString();
+            PGNic.Text = pgNic.ToString(CultureInfo.CurrentCulture);
+            NicStr.Text = nicStr.ToString(CultureInfo.CurrentCulture);
+            TargetStrength.Text = targetStr.ToString(CultureInfo.CurrentCulture);
+            TargetVolume.Text = targetVol.ToString(CultureInfo.CurrentCulture);
+            TargetPG.Text = targetPg.ToString(CultureInfo.CurrentCulture);
+            WaterPercentage.Text = waterVodkaPga.ToString(CultureInfo.CurrentCulture);
             PushFlavorsToData(flavors);
 
             return notes;
@@ -41,7 +42,7 @@ namespace JuiceTime.Views
 
         private List<Flavor> GetFlavors()
         {
-            List<Flavor> thisFlavors = new List<Flavor>();
+            var thisFlavors = new List<Flavor>();
 
             var flavor1 = new Flavor("Brand Placeholder", Flavor1Name.Text, Flavor1PG.QuickParse(), Flavor1Percentage.QuickParse());
             var flavor2 = new Flavor("Brand Placeholder", Flavor2Name.Text, Flavor2PG.QuickParse(), Flavor2Percentage.QuickParse());
@@ -77,53 +78,53 @@ namespace JuiceTime.Views
 
             var (flavor1Brand, flavor1Name, flavor1Pg, flavor1Percentage) = flavor1;
             Flavor1Name.Text = flavor1Name;
-            Flavor1PG.Text = flavor1Pg.ToString();
-            Flavor1Percentage.Text = flavor1Percentage.ToString();
+            Flavor1PG.Text = flavor1Pg.ToString(CultureInfo.CurrentCulture);
+            Flavor1Percentage.Text = flavor1Percentage.ToString(CultureInfo.CurrentCulture);
 
             var (flavor2Brand, flavor2Name, flavor2Pg, flavor2Percentage) = flavor2;
             Flavor2Name.Text = flavor2Name;
-            Flavor2PG.Text = flavor2Pg.ToString();
-            Flavor2Percentage.Text = flavor2Percentage.ToString();
+            Flavor2PG.Text = flavor2Pg.ToString(CultureInfo.CurrentCulture);
+            Flavor2Percentage.Text = flavor2Percentage.ToString(CultureInfo.CurrentCulture);
 
             var (flavor3Brand, flavor3Name, flavor3Pg, flavor3Percentage) = flavor3;
             Flavor3Name.Text = flavor3Name;
-            Flavor3PG.Text = flavor3Pg.ToString();
-            Flavor3Percentage.Text = flavor3Percentage.ToString();
+            Flavor3PG.Text = flavor3Pg.ToString(CultureInfo.CurrentCulture);
+            Flavor3Percentage.Text = flavor3Percentage.ToString(CultureInfo.CurrentCulture);
 
             var (flavor4Brand, flavor4Name, flavor4Pg, flavor4Percentage) = flavor4;
             Flavor4Name.Text = flavor4Name;
-            Flavor4PG.Text = flavor4Pg.ToString();
-            Flavor4Percentage.Text = flavor4Percentage.ToString();
+            Flavor4PG.Text = flavor4Pg.ToString(CultureInfo.CurrentCulture);
+            Flavor4Percentage.Text = flavor4Percentage.ToString(CultureInfo.CurrentCulture);
 
             var (flavor5Brand, flavor5Name, flavor5Pg, flavor5Percentage) = flavor5;
             Flavor5Name.Text = flavor5Name;
-            Flavor5PG.Text = flavor5Pg.ToString();
-            Flavor5Percentage.Text = flavor5Percentage.ToString();
+            Flavor5PG.Text = flavor5Pg.ToString(CultureInfo.CurrentCulture);
+            Flavor5Percentage.Text = flavor5Percentage.ToString(CultureInfo.CurrentCulture);
 
             var (flavor6Brand, flavor6Name, flavor6Pg, flavor6Percentage) = flavor6;
             Flavor6Name.Text = flavor6Name;
-            Flavor6PG.Text = flavor6Pg.ToString();
-            Flavor6Percentage.Text = flavor6Percentage.ToString();
+            Flavor6PG.Text = flavor6Pg.ToString(CultureInfo.CurrentCulture);
+            Flavor6Percentage.Text = flavor6Percentage.ToString(CultureInfo.CurrentCulture);
 
             var (flavor7Brand, flavor7Name, flavor7Pg, flavor7Percentage) = flavor7;
             Flavor7Name.Text = flavor7Name;
-            Flavor7PG.Text = flavor7Pg.ToString();
-            Flavor7Percentage.Text = flavor7Percentage.ToString();
+            Flavor7PG.Text = flavor7Pg.ToString(CultureInfo.CurrentCulture);
+            Flavor7Percentage.Text = flavor7Percentage.ToString(CultureInfo.CurrentCulture);
 
             var (flavor8Brand, flavor8Name, flavor8Pg, flavor8Percentage) = flavor8;
             Flavor8Name.Text = flavor8Name;
-            Flavor8PG.Text = flavor8Pg.ToString();
-            Flavor8Percentage.Text = flavor8Percentage.ToString();
+            Flavor8PG.Text = flavor8Pg.ToString(CultureInfo.CurrentCulture);
+            Flavor8Percentage.Text = flavor8Percentage.ToString(CultureInfo.CurrentCulture);
 
             var (flavor9Brand, flavor9Name, flavor9Pg, flavor9Percentage) = flavor9;
             Flavor9Name.Text = flavor9Name;
-            Flavor9PG.Text = flavor9Pg.ToString();
-            Flavor9Percentage.Text = flavor9Percentage.ToString();
+            Flavor9PG.Text = flavor9Pg.ToString(CultureInfo.CurrentCulture);
+            Flavor9Percentage.Text = flavor9Percentage.ToString(CultureInfo.CurrentCulture);
 
             var (flavor10Brand, flavor10Name, flavor10Pg, flavor10Percentage) = flavor10;
             Flavor10Name.Text = flavor10Name;
-            Flavor10PG.Text = flavor10Pg.ToString();
-            Flavor10Percentage.Text = flavor10Percentage.ToString();
+            Flavor10PG.Text = flavor10Pg.ToString(CultureInfo.CurrentCulture);
+            Flavor10Percentage.Text = flavor10Percentage.ToString(CultureInfo.CurrentCulture);
         }
 
         private void PGNic_OnTextChanged(object sender, TextChangedEventArgs e) => PGNic.HandlePercentageHandlers(VGNic);

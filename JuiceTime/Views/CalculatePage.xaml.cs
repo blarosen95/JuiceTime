@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Popups;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,12 +14,12 @@ namespace JuiceTime.Views
     public sealed partial class CalculatePage : Page
     {
         //TODO: replace the use of a field containing this app's instance of the RecipePage with a more conventional/functional approach
-        private Recipe _recipe;
+        private readonly Recipe _recipe;
 
         public CalculatePage(Recipe recipe)
         {
-            this.InitializeComponent();
-            this._recipe = recipe;
+            InitializeComponent();
+            _recipe = recipe;
         }
 
         //Called every time the user loads the CalculatePage as the view
@@ -50,23 +40,23 @@ namespace JuiceTime.Views
             var (brand10, name10, pgToVG10, percent10) = flavors[9];
 
             //TODO: Update this page's controls to reflect the current calculations for each value
-            NicotineMl.Text = (targetStr * targetVol / nicStr).ToString();
+            NicotineMl.Text = (targetStr * targetVol / nicStr).ToString(CultureInfo.CurrentCulture);
 
-            NicotinePercent.Text = (NicotineMl.QuickParse()/targetVol * 100).ToString();
-            PGPercent.Text = GetDifferencePGTotal(flavors, targetPg, pgNic, NicotinePercent.QuickParse()).ToString();
-            VGPercent.Text = GetDifferenceVGTotal(flavors, 100 - targetPg, 100 - pgNic, NicotinePercent.QuickParse()).ToString();
-            WaterPercent.Text = waterVodkaPga.ToString();
-            Flavor1Percent.Text = percent1.ToString();
-            Flavor2Percent.Text = percent2.ToString();
-            Flavor3Percent.Text = percent3.ToString();
-            Flavor4Percent.Text = percent4.ToString();
-            Flavor5Percent.Text = percent5.ToString();
-            Flavor6Percent.Text = percent6.ToString();
-            Flavor7Percent.Text = percent7.ToString();
-            Flavor8Percent.Text = percent8.ToString();
-            Flavor9Percent.Text = percent9.ToString();
-            Flavor10Percent.Text = percent10.ToString();
-            TotalPercent.Text = GetSumByColumn(CalcGrid, List.Of(0, 1, 16), 3).ToString();
+            NicotinePercent.Text = (NicotineMl.QuickParse()/targetVol * 100).ToString(CultureInfo.CurrentCulture);
+            PGPercent.Text = GetDifferencePGTotal(flavors, targetPg, pgNic, NicotinePercent.QuickParse()).ToString(CultureInfo.CurrentCulture);
+            VGPercent.Text = GetDifferenceVGTotal(flavors, 100 - targetPg, 100 - pgNic, NicotinePercent.QuickParse()).ToString(CultureInfo.CurrentCulture);
+            WaterPercent.Text = waterVodkaPga.ToString(CultureInfo.CurrentCulture);
+            Flavor1Percent.Text = percent1.ToString(CultureInfo.CurrentCulture);
+            Flavor2Percent.Text = percent2.ToString(CultureInfo.CurrentCulture);
+            Flavor3Percent.Text = percent3.ToString(CultureInfo.CurrentCulture);
+            Flavor4Percent.Text = percent4.ToString(CultureInfo.CurrentCulture);
+            Flavor5Percent.Text = percent5.ToString(CultureInfo.CurrentCulture);
+            Flavor6Percent.Text = percent6.ToString(CultureInfo.CurrentCulture);
+            Flavor7Percent.Text = percent7.ToString(CultureInfo.CurrentCulture);
+            Flavor8Percent.Text = percent8.ToString(CultureInfo.CurrentCulture);
+            Flavor9Percent.Text = percent9.ToString(CultureInfo.CurrentCulture);
+            Flavor10Percent.Text = percent10.ToString(CultureInfo.CurrentCulture);
+            TotalPercent.Text = GetSumByColumn(CalcGrid, List.Of(0, 1, 16), 3).ToString(CultureInfo.CurrentCulture);
 
             Flavor1Name.Text = name1;
             Flavor2Name.Text = name2;
@@ -79,25 +69,25 @@ namespace JuiceTime.Views
             Flavor9Name.Text = name9;
             Flavor10Name.Text = name10;
 
-            PGMl.Text = PGPercent.QuickParse().ToMl(targetVol).ToString();
-            VGMl.Text = VGPercent.QuickParse().ToMl(targetVol).ToString();
-            Flavor1Ml.Text = percent1.ToMl(targetVol).ToString();
-            Flavor2Ml.Text = percent2.ToMl(targetVol).ToString();
-            Flavor3Ml.Text = percent3.ToMl(targetVol).ToString();
-            Flavor4Ml.Text = percent4.ToMl(targetVol).ToString();
-            Flavor5Ml.Text = percent5.ToMl(targetVol).ToString();
-            Flavor6Ml.Text = percent6.ToMl(targetVol).ToString();
-            Flavor7Ml.Text = percent7.ToMl(targetVol).ToString();
-            Flavor8Ml.Text = percent8.ToMl(targetVol).ToString();
-            Flavor9Ml.Text = percent9.ToMl(targetVol).ToString();
-            Flavor10Ml.Text = percent10.ToMl(targetVol).ToString();
+            PGMl.Text = PGPercent.QuickParse().ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
+            VGMl.Text = VGPercent.QuickParse().ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
+            Flavor1Ml.Text = percent1.ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
+            Flavor2Ml.Text = percent2.ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
+            Flavor3Ml.Text = percent3.ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
+            Flavor4Ml.Text = percent4.ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
+            Flavor5Ml.Text = percent5.ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
+            Flavor6Ml.Text = percent6.ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
+            Flavor7Ml.Text = percent7.ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
+            Flavor8Ml.Text = percent8.ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
+            Flavor9Ml.Text = percent9.ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
+            Flavor10Ml.Text = percent10.ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
 
         }
         
         private static double GetDifferencePGTotal(List<Flavor> flavors, double pgPercent, double nicPg, double nicPercent)
         {
-            double pgSum = pgPercent;
-            foreach (Flavor flavor in flavors)
+            var pgSum = pgPercent;
+            foreach (var flavor in flavors)
             {
                 pgSum -= flavor.GetPG() * (flavor.GetPercentToUse() / 100);
             }
@@ -116,8 +106,8 @@ namespace JuiceTime.Views
         private static double GetDifferenceVGTotal(List<Flavor> flavors, double vgPercent, double nicVg,
             double nicPercent)
         {
-            double vgSum = vgPercent;
-            foreach (Flavor flavor in flavors)
+            var vgSum = vgPercent;
+            foreach (var flavor in flavors)
             {
                 vgSum -= 100 - flavor.GetPG();
             }

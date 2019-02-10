@@ -4,7 +4,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace JuiceTime
 {
-    class MessageDialogFactory
+    internal class MessageDialogFactory
     {
         private TextBox _box;
 
@@ -14,7 +14,7 @@ namespace JuiceTime
         {
             _box = textBox;
 
-            MessageDialog dialogOut = new MessageDialog("You may only use the following characters: ., 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9", "Invalid Character!");
+            var dialogOut = new MessageDialog("You may only use the following characters: ., 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9", "Invalid Character!");
 
             dialogOut.Commands.Add(new UICommand(
                 "Fix This For Me",

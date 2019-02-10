@@ -1,41 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace JuiceTime
 {
     public class Flavor
     {
         [JsonProperty]
-        private string Brand;
+        private string _brand;
         [JsonProperty]
-        private string Name;
+        private string _name;
         [JsonProperty]
-        private double PGToVG;
+        private double _pgtoVG;
         [JsonProperty]
-        private double PercentToUse;
+        private double _percentToUse;
 
         public Flavor(string brand, string name, double pgtoVg, double percentToUse)
         {
-            Brand = brand;
-            Name = name;
-            PGToVG = pgtoVg;
-            PercentToUse = percentToUse;
+            _brand = brand;
+            _name = name;
+            _pgtoVG = pgtoVg;
+            _percentToUse = percentToUse;
         }
 
         public void Deconstruct(out string brand, out string name, out double pgtoVg, out double percentToUse)
         {
-            brand = Brand;
-            name = Name;
-            pgtoVg = PGToVG;
-            percentToUse = PercentToUse;
+            brand = _brand;
+            name = _name;
+            pgtoVg = _pgtoVG;
+            percentToUse = _percentToUse;
         }
 
-        public double GetPG() => PGToVG;
-        public double GetPercentToUse() => PercentToUse;
+        public double GetPG() => _pgtoVG;
+        public double GetPercentToUse() => _percentToUse;
 
     }
 }

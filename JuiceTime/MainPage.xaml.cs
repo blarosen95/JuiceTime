@@ -15,7 +15,7 @@ namespace JuiceTime
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage
     {
 
         internal RecipePage RecipeView = new RecipePage();
@@ -23,25 +23,26 @@ namespace JuiceTime
 
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         //Open the file browser dialog
         private async void Open_OnClick(object sender, RoutedEventArgs e)
         {
-            var picker = new FileOpenPicker();
-            picker.ViewMode = PickerViewMode.List;
+            var picker = new FileOpenPicker
+            {
+                ViewMode = PickerViewMode.List, SuggestedStartLocation = PickerLocationId.DocumentsLibrary
+            };
             //Either replace this with a custom File Explorer view or ensure that this directory is ultimately always remembered
-            picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             picker.FileTypeFilter.Add(".json");
 
-            StorageFile file = await picker.PickSingleFileAsync();
+            var file = await picker.PickSingleFileAsync();
             if (file != null)
             {
                 //Application now has read/write access to the picked file
                 //TODO: Call the JSON Parser class and store the data parsed from the file in a List
-                string recipeJson = await FileIO.ReadTextAsync(file);
-                Recipe recipeFromFile = JsonConvert.DeserializeObject<Recipe>(recipeJson);
+                var recipeJson = await FileIO.ReadTextAsync(file);
+                var recipeFromFile = JsonConvert.DeserializeObject<Recipe>(recipeJson);
                 NotesView.NotesTextBox.Text = RecipeView.CreateDataFromRecipe(recipeFromFile);
             }
             else
@@ -55,28 +56,28 @@ namespace JuiceTime
         //Open the file saving dialog/browser, perform parsing/processing, and save as instructed by user input
         private async void Save_OnClick(object sender, RoutedEventArgs e)
         {
-            FileSavePicker picker = new FileSavePicker();
-            picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            var picker = new FileSavePicker
+            {
+                SuggestedStartLocation = PickerLocationId.DocumentsLibrary
+            };
             picker.FileTypeChoices.Add("JSON File", new List<string>() { ".json" });
             picker.SuggestedFileName = "New Recipe";
 
             //TODO: The suggested start location (user's Documents folder) does indeed only open as default until the user has saved to another folder
             // TODO (continued): once they have saved to another folder, it appears to remember that even after closing the App and later restarting it (at least in VS's debug)
 
-            StorageFile file = await picker.PickSaveFileAsync();
-            if (file != null)
-            {
-                //Prevent updates to the remote version of this file until changes are finalized and CompleteUpdatesAsync is called
-                CachedFileManager.DeferUpdates(file);
+            var file = await picker.PickSaveFileAsync();
+            if (file == null) return;
+            //Prevent updates to the remote version of this file until changes are finalized and CompleteUpdatesAsync is called
+            CachedFileManager.DeferUpdates(file);
 
-                Recipe recipeToGo = RecipeView.CreateRecipeFromData(NotesView.NotesTextBox.Text);
+            var recipeToGo = RecipeView.CreateRecipeFromData(NotesView.NotesTextBox.Text);
                 
-                //TODO: This is creating a string with just "{}" none of the data seems to exist.
-                string recipeJson = JsonConvert.SerializeObject(recipeToGo);
+            //TODO: This is creating a string with just "{}" none of the data seems to exist.
+            var recipeJson = JsonConvert.SerializeObject(recipeToGo);
 
-                //Write to file
-                await FileIO.WriteTextAsync(file, recipeJson);
-            }
+            //Write to file
+            await FileIO.WriteTextAsync(file, recipeJson);
         }
 
         private void Exit_OnClick(object sender, RoutedEventArgs e) => Application.Current.Exit();
@@ -92,11 +93,9 @@ namespace JuiceTime
             //Set initial page
             foreach (NavigationViewItemBase item in nvTopLevelNav.MenuItems)
             {
-                if (item is NavigationViewItem && item.Tag.ToString() == "Recipe_Page")
-                {
-                    nvTopLevelNav.SelectedItem = item;
-                    break;
-                }
+                if (!(item is NavigationViewItem) || item.Tag.ToString() != "Recipe_Page") continue;
+                nvTopLevelNav.SelectedItem = item;
+                break;
             }
 
             contentFrame.Content = RecipeView;
@@ -122,7 +121,7 @@ namespace JuiceTime
                     break;
 
                 case "Nav_Calculator":
-                    CalculatePage calculateView = new CalculatePage(RecipeView.CreateRecipeFromData(NotesView.NotesTextBox.Text));
+                    var calculateView = new CalculatePage(RecipeView.CreateRecipeFromData(NotesView.NotesTextBox.Text));
                     //Calculate the values before bringing the page into view
                     calculateView.CalculateValues();
                     contentFrame.Content = calculateView;
@@ -133,9 +132,7 @@ namespace JuiceTime
 
         private void GramsSet_OnClick(object sender, RoutedEventArgs e)
         {
-            Popup p = new Popup();
-            p.Child = new GramsPage();
-            p.IsOpen = true;
+            var p = new Popup {Child = new Views.GramsPage(), IsOpen = true};
         }
     }
 }
