@@ -11,7 +11,7 @@ namespace JuiceTime.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class CalculatePage : Page
+    public sealed partial class CalculatePage
     {
         //TODO: replace the use of a field containing this app's instance of the RecipePage with a more conventional/functional approach
         private readonly Recipe _recipe;
@@ -82,6 +82,21 @@ namespace JuiceTime.Views
             Flavor9Ml.Text = percent9.ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
             Flavor10Ml.Text = percent10.ToMl(targetVol).ToString(CultureInfo.CurrentCulture);
 
+            PGGrams.Text = GetGramsForType(PGMl.Text, 2).ToString(CultureInfo.CurrentCulture);
+            VGGrams.Text = GetGramsForType(VGMl.Text, 1).ToString(CultureInfo.CurrentCulture);
+            Flavor1Grams.Text = GetGramsForType(Flavor1Ml.Text, 4).ToString(CultureInfo.CurrentCulture);
+            Flavor2Grams.Text = GetGramsForType(Flavor2Ml.Text, 4).ToString(CultureInfo.CurrentCulture);
+            Flavor3Grams.Text = GetGramsForType(Flavor3Ml.Text, 4).ToString(CultureInfo.CurrentCulture);
+            Flavor4Grams.Text = GetGramsForType(Flavor4Ml.Text, 4).ToString(CultureInfo.CurrentCulture);
+            Flavor5Grams.Text = GetGramsForType(Flavor5Ml.Text, 4).ToString(CultureInfo.CurrentCulture);
+            Flavor6Grams.Text = GetGramsForType(Flavor6Ml.Text, 4).ToString(CultureInfo.CurrentCulture);
+            Flavor7Grams.Text = GetGramsForType(Flavor7Ml.Text, 4).ToString(CultureInfo.CurrentCulture);
+            Flavor8Grams.Text = GetGramsForType(Flavor8Ml.Text, 4).ToString(CultureInfo.CurrentCulture);
+            Flavor9Grams.Text = GetGramsForType(Flavor9Ml.Text, 4).ToString(CultureInfo.CurrentCulture);
+            Flavor10Grams.Text = GetGramsForType(Flavor10Ml.Text, 4).ToString(CultureInfo.CurrentCulture);
+            NicotineGrams.Text = GetGramsForType(NicotineMl.Text, 3).ToString(CultureInfo.CurrentCulture);
+
+
         }
         
         private static double GetDifferencePGTotal(List<Flavor> flavors, double pgPercent, double nicPg, double nicPercent)
@@ -124,5 +139,55 @@ namespace JuiceTime.Views
         }
 
         private static double GetSumByColumn(Grid grid, List<int> rowsExcluded, int column) => (from TextBlock child in grid.Children where rowsExcluded.IndexOf(Grid.GetRow(child)) == -1 && Grid.GetColumn(child) == column select child.QuickParse()).Sum();
+
+        /// <summary>
+        /// GetGramsForType takes two values:
+        ///     The amount of the ingredient used (in milliliters) as a string (for now),
+        ///     And the type of ingredient used (all types will have a specific, corresponding integer value).
+        /// </summary>
+        /// <param name="ingredientMl">
+        /// This is (currently) passed as a string because it should make the usage of this method shorter, and less complicated
+        /// </param>
+        /// <param name="ingredientType">
+        /// The possible values are (currently):
+        ///     "1": VG
+        ///     "2": PG
+        ///     "3": Nicotine
+        ///     "4": Flavor
+        /// </param>
+        /// <returns>
+        /// The amount of the ingredient used (in grams) as a double (for now).
+        /// </returns>
+        private static double GetGramsForType(string ingredientMl, int ingredientType)
+        {
+            double grams = 0;
+
+            switch (ingredientType)
+            {
+                case 1:
+                    //TODO: Do VG calculation
+                    //blabla
+                    break;
+                case 2:
+                    //TODO: Do PG calculation
+                    //blabla
+                    break;
+                case 3:
+                    //TODO: Do Nicotine calculation
+                    //blabla
+                    break;
+                case 4:
+                    //TODO: Do Flavor calculation
+                    //blabla
+                    break;
+                default:
+                    //TODO: Do no calculations
+                    grams = 0;
+                    break;
+            }
+
+            return grams;
+        }
+
     }
 }

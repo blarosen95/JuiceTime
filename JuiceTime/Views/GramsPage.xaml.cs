@@ -4,7 +4,6 @@ using Windows.Globalization.DateTimeFormatting;
 using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Newtonsoft.Json;
 
@@ -15,7 +14,7 @@ namespace JuiceTime.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class GramsPage : Page
+    public sealed partial class GramsPage
     {
         private ApplicationDataContainer _localSettings = ApplicationData.Current.LocalSettings;
         private readonly StorageFolder _localFolder = ApplicationData.Current.LocalFolder;
@@ -28,9 +27,9 @@ namespace JuiceTime.Views
 
         async void WriteJson(string jsonData)
         {
-            Windows.Globalization.DateTimeFormatting.DateTimeFormatter formatter = new DateTimeFormatter("longtime");
+            var formatter = new DateTimeFormatter("longtime");
 
-            StorageFile gramsSetFile =
+            var gramsSetFile =
                 await _localFolder.CreateFileAsync("GramsSet.JSON", CreationCollisionOption.ReplaceExisting);
             await FileIO.WriteTextAsync(gramsSetFile, jsonData);
 
@@ -38,7 +37,7 @@ namespace JuiceTime.Views
 
         private void GramsSetButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Grams grams = new Grams(NicGrams.QuickParse(), PGGrams.QuickParse(), VGGrams.QuickParse(), WaterGrams.QuickParse(), FlavoringGrams.QuickParse());
+            var grams = new Grams(NicGrams.QuickParse(), PGGrams.QuickParse(), VGGrams.QuickParse(), WaterGrams.QuickParse(), FlavoringGrams.QuickParse());
 
             WriteJson(JsonConvert.SerializeObject(grams));
 
@@ -57,8 +56,8 @@ namespace JuiceTime.Views
 
                 Grams grams = JsonConvert.DeserializeObject<Grams>(await FileIO.ReadTextAsync(gramsFile));
                 //TODO find out if C#7 allows for an overload constructor with the same number, but different type, of params.
-                var filler = "";
-                (NicGrams.Text, PGGrams.Text, VGGrams.Text, WaterGrams.Text, FlavoringGrams.Text, filler) = grams;
+                // Changed the final variable in the following Deconstruction to a disposable ("_"), instead of declaring a variable, "filler", here and using it in the deconstruction. 
+                (NicGrams.Text, PGGrams.Text, VGGrams.Text, WaterGrams.Text, FlavoringGrams.Text, _) = grams;
 
             }
             catch (FileNotFoundException)
