@@ -16,8 +16,6 @@ namespace JuiceTime.Views
     {
         private readonly StorageFolder _localFolder = ApplicationData.Current.LocalFolder;
 
-        private Grams _grams;
-
         public GramsPage()
         {
             InitializeComponent();
@@ -54,10 +52,10 @@ namespace JuiceTime.Views
             {
                 var gramsFile = await _localFolder.GetFileAsync("GramsSet.JSON");
 
-                _grams = JsonConvert.DeserializeObject<Grams>(await FileIO.ReadTextAsync(gramsFile));
+                var grams = JsonConvert.DeserializeObject<Grams>(await FileIO.ReadTextAsync(gramsFile));
                 //TODO find out if C#7 allows for an overload constructor with the same number, but different type, of params.
                 // Changed the final variable in the following Deconstruction to a disposable ("_"), instead of declaring a variable, "filler", here and using it in the deconstruction. 
-                (NicGrams.Text, PGGrams.Text, VGGrams.Text, WaterGrams.Text, FlavoringGrams.Text, _) = _grams;
+                (NicGrams.Text, PGGrams.Text, VGGrams.Text, WaterGrams.Text, FlavoringGrams.Text, _) = grams;
 
             }
             catch (FileNotFoundException)
@@ -68,11 +66,5 @@ namespace JuiceTime.Views
                 await messageDialog.ShowAsync();
             }
         }
-
-        public Grams GetGramsSetting()
-        {
-            return _grams;
-        }
-
     }
 }

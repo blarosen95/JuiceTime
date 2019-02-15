@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
+using Newtonsoft.Json;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -15,18 +19,17 @@ namespace JuiceTime.Views
     {
         //TODO: replace the use of a field containing this app's instance of the RecipePage with a more conventional/functional approach
         private readonly Recipe _recipe;
-
-        private readonly GramsPage _gramsPage = new GramsPage();
+        
         private static double _vgGrams, _pgGrams, _nicGrams, _waterGrams, _flavoringGrams;
 
+        private readonly StorageFolder _localFolder = ApplicationData.Current.LocalFolder;
 
         public CalculatePage(Recipe recipe)
         {
             InitializeComponent();
             _recipe = recipe;
-
-            var grams = _gramsPage.GetGramsSetting();
-            (_nicGrams, _pgGrams, _vgGrams, _waterGrams, _flavoringGrams) = grams;
+            
+            PreparePage();
         }
 
         //Called every time the user loads the CalculatePage as the view
@@ -194,5 +197,24 @@ namespace JuiceTime.Views
                     return 0;
             }
         }
+
+        private async void PreparePage()
+        {
+            try
+            {
+                var gramsFile = await _localFolder.GetFileAsync("GramsSet.JSON");
+
+                var grams = JsonConvert.DeserializeObject<Grams>(await FileIO.ReadTextAsync(gramsFile));
+
+                (_nicGrams, _pgGrams, _vgGrams, _waterGrams, _flavoringGrams) = grams;
+
+            }
+            catch (FileNotFoundException e)
+            {
+                var messageDialog = new MessageDialog("Please set your densities in the Grams Set page (the right-most icon in the top toolbar)", "Grams Not Set");
+                await messageDialog.ShowAsync();
+            }
+        }
+
     }
 }

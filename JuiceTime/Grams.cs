@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace JuiceTime
 {
-    public class Grams
+    class Grams
     {
         [JsonProperty] private double _nicGrams;
         [JsonProperty] private double _pgGrams;
