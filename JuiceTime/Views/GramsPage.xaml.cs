@@ -7,8 +7,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls.Primitives;
 using Newtonsoft.Json;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace JuiceTime.Views
 {
     /// <summary>
@@ -16,8 +14,9 @@ namespace JuiceTime.Views
     /// </summary>
     public sealed partial class GramsPage
     {
-        private ApplicationDataContainer _localSettings = ApplicationData.Current.LocalSettings;
         private readonly StorageFolder _localFolder = ApplicationData.Current.LocalFolder;
+
+        private Grams _grams;
 
         public GramsPage()
         {
@@ -25,8 +24,9 @@ namespace JuiceTime.Views
             PreparePage();
         }
 
-        async void WriteJson(string jsonData)
+        private async void WriteJson(string jsonData)
         {
+            // TODO: Delete the following usage of DateTimeFormatter (seems unused and unnecessary for this class's goals)
             var formatter = new DateTimeFormatter("longtime");
 
             var gramsSetFile =
@@ -52,12 +52,12 @@ namespace JuiceTime.Views
         {
             try
             {
-                StorageFile gramsFile = await _localFolder.GetFileAsync("GramsSet.JSON");
+                var gramsFile = await _localFolder.GetFileAsync("GramsSet.JSON");
 
-                Grams grams = JsonConvert.DeserializeObject<Grams>(await FileIO.ReadTextAsync(gramsFile));
+                _grams = JsonConvert.DeserializeObject<Grams>(await FileIO.ReadTextAsync(gramsFile));
                 //TODO find out if C#7 allows for an overload constructor with the same number, but different type, of params.
                 // Changed the final variable in the following Deconstruction to a disposable ("_"), instead of declaring a variable, "filler", here and using it in the deconstruction. 
-                (NicGrams.Text, PGGrams.Text, VGGrams.Text, WaterGrams.Text, FlavoringGrams.Text, _) = grams;
+                (NicGrams.Text, PGGrams.Text, VGGrams.Text, WaterGrams.Text, FlavoringGrams.Text, _) = _grams;
 
             }
             catch (FileNotFoundException)
@@ -67,6 +67,11 @@ namespace JuiceTime.Views
                     "First Time Setting Grams?");
                 await messageDialog.ShowAsync();
             }
+        }
+
+        public Grams GetGramsSetting()
+        {
+            return _grams;
         }
 
     }

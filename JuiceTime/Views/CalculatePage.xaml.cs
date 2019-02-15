@@ -16,10 +16,17 @@ namespace JuiceTime.Views
         //TODO: replace the use of a field containing this app's instance of the RecipePage with a more conventional/functional approach
         private readonly Recipe _recipe;
 
+        private readonly GramsPage _gramsPage = new GramsPage();
+        private static double _vgGrams, _pgGrams, _nicGrams, _waterGrams, _flavoringGrams;
+
+
         public CalculatePage(Recipe recipe)
         {
             InitializeComponent();
             _recipe = recipe;
+
+            var grams = _gramsPage.GetGramsSetting();
+            (_nicGrams, _pgGrams, _vgGrams, _waterGrams, _flavoringGrams) = grams;
         }
 
         //Called every time the user loads the CalculatePage as the view
@@ -27,7 +34,7 @@ namespace JuiceTime.Views
         {
             //TODO: Perform calculations using RecipePage's data
             //Do here
-            var(pgNic, nicStr, targetStr, targetVol, targetPg, flavors, notes, waterVodkaPga) = _recipe;
+            var (pgNic, nicStr, targetStr, targetVol, targetPg, flavors, notes, waterVodkaPga) = _recipe;
             var (brand1, name1, pgToVG1, percent1) = flavors[0];
             var (brand2, name2, pgToVG2, percent2) = flavors[1];
             var (brand3, name3, pgToVG3, percent3) = flavors[2];
@@ -42,9 +49,11 @@ namespace JuiceTime.Views
             //TODO: Update this page's controls to reflect the current calculations for each value
             NicotineMl.Text = (targetStr * targetVol / nicStr).ToString(CultureInfo.CurrentCulture);
 
-            NicotinePercent.Text = (NicotineMl.QuickParse()/targetVol * 100).ToString(CultureInfo.CurrentCulture);
-            PGPercent.Text = GetDifferencePGTotal(flavors, targetPg, pgNic, NicotinePercent.QuickParse()).ToString(CultureInfo.CurrentCulture);
-            VGPercent.Text = GetDifferenceVGTotal(flavors, 100 - targetPg, 100 - pgNic, NicotinePercent.QuickParse()).ToString(CultureInfo.CurrentCulture);
+            NicotinePercent.Text = (NicotineMl.QuickParse() / targetVol * 100).ToString(CultureInfo.CurrentCulture);
+            PGPercent.Text = GetDifferencePGTotal(flavors, targetPg, pgNic, NicotinePercent.QuickParse())
+                .ToString(CultureInfo.CurrentCulture);
+            VGPercent.Text = GetDifferenceVGTotal(flavors, 100 - targetPg, 100 - pgNic, NicotinePercent.QuickParse())
+                .ToString(CultureInfo.CurrentCulture);
             WaterPercent.Text = waterVodkaPga.ToString(CultureInfo.CurrentCulture);
             Flavor1Percent.Text = percent1.ToString(CultureInfo.CurrentCulture);
             Flavor2Percent.Text = percent2.ToString(CultureInfo.CurrentCulture);
@@ -95,11 +104,10 @@ namespace JuiceTime.Views
             Flavor9Grams.Text = GetGramsForType(Flavor9Ml.Text, 4).ToString(CultureInfo.CurrentCulture);
             Flavor10Grams.Text = GetGramsForType(Flavor10Ml.Text, 4).ToString(CultureInfo.CurrentCulture);
             NicotineGrams.Text = GetGramsForType(NicotineMl.Text, 3).ToString(CultureInfo.CurrentCulture);
-
-
         }
-        
-        private static double GetDifferencePGTotal(List<Flavor> flavors, double pgPercent, double nicPg, double nicPercent)
+
+        private static double GetDifferencePGTotal(List<Flavor> flavors, double pgPercent, double nicPg,
+            double nicPercent)
         {
             var pgSum = pgPercent;
             foreach (var flavor in flavors)
@@ -109,7 +117,9 @@ namespace JuiceTime.Views
 
             pgSum -= (nicPercent / 100 * nicPg);
 
-            var messageDialog = new MessageDialog("You need to add more PG. Cannot use negative numbers as shown. You might have received this error because your desired PG ratio is lower than the amount contained in your ingredients.", "Add more PG");
+            var messageDialog = new MessageDialog(
+                "You need to add more PG. Cannot use negative numbers as shown. You might have received this error because your desired PG ratio is lower than the amount contained in your ingredients.",
+                "Add more PG");
             if (pgSum.CompareTo(0) < 0)
             {
                 messageDialog.ShowAsync();
@@ -129,7 +139,9 @@ namespace JuiceTime.Views
 
             vgSum -= (nicPercent / 100 * nicVg);
 
-            var messageDialog = new MessageDialog("You need to add more VG. Cannot use negative numbers as shown. You might have received this error because your desired VG ratio is lower than the amount contained in your ingredients.", "Add more VG");
+            var messageDialog = new MessageDialog(
+                "You need to add more VG. Cannot use negative numbers as shown. You might have received this error because your desired VG ratio is lower than the amount contained in your ingredients.",
+                "Add more VG");
             if (vgSum.CompareTo(0) < 0)
             {
                 messageDialog.ShowAsync();
@@ -138,7 +150,10 @@ namespace JuiceTime.Views
             return vgSum;
         }
 
-        private static double GetSumByColumn(Grid grid, List<int> rowsExcluded, int column) => (from TextBlock child in grid.Children where rowsExcluded.IndexOf(Grid.GetRow(child)) == -1 && Grid.GetColumn(child) == column select child.QuickParse()).Sum();
+        private static double GetSumByColumn(Grid grid, List<int> rowsExcluded, int column) =>
+            (from TextBlock child in grid.Children
+                where rowsExcluded.IndexOf(Grid.GetRow(child)) == -1 && Grid.GetColumn(child) == column
+                select child.QuickParse()).Sum();
 
         /// <summary>
         /// GetGramsForType takes two values:
@@ -160,34 +175,24 @@ namespace JuiceTime.Views
         /// </returns>
         private static double GetGramsForType(string ingredientMl, int ingredientType)
         {
-            double grams = 0;
-
             switch (ingredientType)
             {
                 case 1:
                     //TODO: Do VG calculation
-                    //blabla
-                    break;
+                    return double.Parse(ingredientMl) * _vgGrams;
                 case 2:
                     //TODO: Do PG calculation
-                    //blabla
-                    break;
+                    return double.Parse(ingredientMl) * _pgGrams;
                 case 3:
                     //TODO: Do Nicotine calculation
-                    //blabla
-                    break;
+                    return double.Parse(ingredientMl) * _nicGrams;
                 case 4:
                     //TODO: Do Flavor calculation
-                    //blabla
-                    break;
+                    return double.Parse(ingredientMl) * _flavoringGrams;
                 default:
                     //TODO: Do no calculations
-                    grams = 0;
-                    break;
+                    return 0;
             }
-
-            return grams;
         }
-
     }
 }

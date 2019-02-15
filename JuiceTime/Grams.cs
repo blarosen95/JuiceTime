@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace JuiceTime
 {
-    class Grams
+    public class Grams
     {
         [JsonProperty] private double _nicGrams;
         [JsonProperty] private double _pgGrams;
@@ -28,7 +28,16 @@ namespace JuiceTime
             waterGrams = _waterGrams;
             flavorGrams = _flavorGrams;
         }
-
+        
+        /// <summary>
+        /// This deconstructor gives the values as strings. Note: it requires a 6th variable assignment for C# to distinguish it from the other deconstructor (disposal variable works fine)
+        /// </summary>
+        /// <param name="nicGrams"></param>
+        /// <param name="pgGrams"></param>
+        /// <param name="vgGrams"></param>
+        /// <param name="waterGrams"></param>
+        /// <param name="flavorGrams"></param>
+        /// <param name="filler"></param>
         public void Deconstruct(out string nicGrams, out string pgGrams, out string vgGrams, out string waterGrams,
             out string flavorGrams, out string filler)
         {
