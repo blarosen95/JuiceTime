@@ -72,7 +72,7 @@
         <TextBox x:Name="Flavor1VG" Grid.Row="5" Grid.Column="6" Text="0" TextChanged="Flavor1VG_OnTextChanged"/>
         <TextBox x:Name="Flavor1Percentage" Grid.Row="5" Grid.Column="7">
             <ToolTipService.ToolTip>
-                <ToolTip Content="Percentage of flavor used"/>
+                <ToolTip x:Name="ToolTip1"  Content="Percentage of flavor used"/>
             </ToolTipService.ToolTip>
         </TextBox>
 
@@ -89,7 +89,7 @@
         <TextBox x:Name="Flavor2VG" Grid.Row="6" Grid.Column="6" Text="0" TextChanged="Flavor2VG_OnTextChanged"/>
         <TextBox x:Name="Flavor2Percentage" Grid.Row="6" Grid.Column="7">
             <ToolTipService.ToolTip>
-                <ToolTip Content="Percentage of flavor used"/>
+                <ToolTip x:Name="ToolTip2" Content="Percentage of flavor used"/>
             </ToolTipService.ToolTip>
         </TextBox>
 
@@ -106,7 +106,7 @@
         <TextBox x:Name="Flavor3VG" Grid.Row="7" Grid.Column="6" Text="0" TextChanged="Flavor3VG_OnTextChanged"/>
         <TextBox x:Name="Flavor3Percentage" Grid.Row="7" Grid.Column="7">
             <ToolTipService.ToolTip>
-                <ToolTip Content="Percentage of flavor used"/>
+                <ToolTip x:Name="ToolTip3" Content="Percentage of flavor used"/>
             </ToolTipService.ToolTip>
         </TextBox>
 
@@ -123,7 +123,7 @@
         <TextBox x:Name="Flavor4VG" Grid.Row="8" Grid.Column="6" Text="0" TextChanged="Flavor4VG_OnTextChanged"/>
         <TextBox x:Name="Flavor4Percentage" Grid.Row="8" Grid.Column="7">
             <ToolTipService.ToolTip>
-                <ToolTip Content="Percentage of flavor used"/>
+                <ToolTip x:Name="ToolTip4" Content="Percentage of flavor used"/>
             </ToolTipService.ToolTip>
         </TextBox>
 
@@ -140,7 +140,7 @@
         <TextBox x:Name="Flavor5VG" Grid.Row="9" Grid.Column="6" Text="0" TextChanged="Flavor5VG_OnTextChanged"/>
         <TextBox x:Name="Flavor5Percentage" Grid.Row="9" Grid.Column="7">
             <ToolTipService.ToolTip>
-                <ToolTip Content="Percentage of flavor used"/>
+                <ToolTip x:Name="ToolTip5" Content="Percentage of flavor used"/>
             </ToolTipService.ToolTip>
         </TextBox>
 
@@ -157,7 +157,7 @@
         <TextBox x:Name="Flavor6VG" Grid.Row="10" Grid.Column="6" Text="0" TextChanged="Flavor6VG_OnTextChanged"/>
         <TextBox x:Name="Flavor6Percentage" Grid.Row="10" Grid.Column="7">
             <ToolTipService.ToolTip>
-                <ToolTip Content="Percentage of flavor used"/>
+                <ToolTip x:Name="ToolTip6" Content="Percentage of flavor used"/>
             </ToolTipService.ToolTip>
         </TextBox>
 
@@ -174,7 +174,7 @@
         <TextBox x:Name="Flavor7VG" Grid.Row="11" Grid.Column="6" Text="0" TextChanged="Flavor7VG_OnTextChanged"/>
         <TextBox x:Name="Flavor7Percentage" Grid.Row="11" Grid.Column="7">
             <ToolTipService.ToolTip>
-                <ToolTip Content="Percentage of flavor used"/>
+                <ToolTip x:Name="ToolTip7" Content="Percentage of flavor used"/>
             </ToolTipService.ToolTip>
         </TextBox>
 
@@ -191,7 +191,7 @@
         <TextBox x:Name="Flavor8VG" Grid.Row="12" Grid.Column="6" Text="0" TextChanged="Flavor8VG_OnTextChanged"/>
         <TextBox x:Name="Flavor8Percentage" Grid.Row="12" Grid.Column="7">
             <ToolTipService.ToolTip>
-                <ToolTip Content="Percentage of flavor used"/>
+                <ToolTip x:Name="ToolTip8" Content="Percentage of flavor used"/>
             </ToolTipService.ToolTip>
         </TextBox>
 
@@ -208,7 +208,7 @@
         <TextBox x:Name="Flavor9VG" Grid.Row="13" Grid.Column="6" Text="0" TextChanged="Flavor9VG_OnTextChanged"/>
         <TextBox x:Name="Flavor9Percentage" Grid.Row="13" Grid.Column="7">
             <ToolTipService.ToolTip>
-                <ToolTip Content="Percentage of flavor used"/>
+                <ToolTip x:Name="ToolTip9" Content="Percentage of flavor used"/>
             </ToolTipService.ToolTip>
         </TextBox>
 
@@ -225,7 +225,7 @@
         <TextBox x:Name="Flavor10VG" Grid.Row="14" Grid.Column="6" Text="0" TextChanged="Flavor10VG_OnTextChanged"/>
         <TextBox x:Name="Flavor10Percentage" Grid.Row="14" Grid.Column="7">
             <ToolTipService.ToolTip>
-                <ToolTip Content="Percentage of flavor used"/>
+                <ToolTip x:Name="ToolTip10" Content="Percentage of flavor used"/>
             </ToolTipService.ToolTip>
         </TextBox>
 
